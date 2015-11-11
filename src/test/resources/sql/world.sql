@@ -19,3 +19,20 @@ values
 select * from member
 --deleate
 delete from member;
+
+--city
+
+select id,
+       name,
+	   countrycode,
+	   district,
+	   population
+from   city
+--selectByCountryCode(String countryCode) 
+select id,
+       name,
+	   countrycode,
+	   district,
+	   population
+ from  city
+where  countrycode = "KOR"
