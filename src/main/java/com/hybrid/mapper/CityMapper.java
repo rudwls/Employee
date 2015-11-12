@@ -8,5 +8,6 @@ import com.hybrid.model.City;
 public interface CityMapper {
 	List<City> selectAll();
 	List<City> selectByCountryCode(String countryCode);
+	void insert(City t);
 
 }

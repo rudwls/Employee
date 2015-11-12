@@ -1,5 +1,5 @@
 select * from country;
-
+--DDL(Data Definition Language)
 drop table member;
 create table member(
 	id 				int auto_increment,
