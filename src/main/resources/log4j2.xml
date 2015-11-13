@@ -13,8 +13,8 @@
 	
 	<!-- Logger 설정 -->
 	<Loggers>
-<!-- 		<Root level="INFO"> -->
-		<Root level="DEBUG">
+		<Root level="INFO">
+<!-- 		<Root level="DEBUG"> -->
 			<AppenderRef ref="console" />
 			<AppenderRef ref="MyFile" />
 		</Root>
