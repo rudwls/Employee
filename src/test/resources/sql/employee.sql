@@ -60,7 +60,7 @@ drop table city
 
 create table city (
   id numeric(11),
-  name char(35),
+  name char(100),
   countrycode char(3),
   district char(30),
   population numeric(11),
@@ -69,7 +69,7 @@ create table city (
 
 delete from city
 
-select * from city
+select count(*) from city
 
 insert into city
 (
@@ -87,4 +87,22 @@ values
 	'Asia',
 	99998
 )
+select d.deptno as dept_deptno,
+	d.dname as dept_dname,
+	d.loc as dept_loc,
+	e.empno as emp_empno,
+	e.ename as emp_ename,
+	e.job as emp_job
+from dept d inner join emp e
+  on d.deptno = e.deptno
+  
+select d.deptno as dept_deptno,
+	d.dname as dept_dname,
+	d.loc as dept_loc,
+	e.empno as emp_empno,
+	e.ename as emp_ename,
+	e.job as emp_job
+from dept d left outer join emp e
+  on d.deptno = e.deptno
+ 
 
