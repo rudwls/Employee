@@ -11,43 +11,38 @@ import com.hybrid.employee.DeptWrapperTest;
 import com.hybrid.model.Dept;
 import com.hybrid.model.Emp;
 
-public class DeptMapperTest {
+public class EmpMapperTest {
 	static Log log = LogFactory.getLog(DeptWrapperTest.class);
 
 	public static void main(String[] args) {
 		GenericXmlApplicationContext ctx = null;
 		ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
 
-		DeptMapper deptMapper = ctx.getBean(DeptMapper.class);
+		EmpMapper empMapper = ctx.getBean(EmpMapper.class);
 //		List<Dept> list = deptMapper.selectAll();
-		List<Dept> list = deptMapper.selectAllWithEmps();
+		List<Emp> list = empMapper.selectAllWithDept();
 		
 
-		list.forEach(new Consumer<Dept>() {
+		list.forEach(new Consumer<Emp>() {
 
-			public void accept(Dept t) {
-				String msg = t.getDeptno()  + " " 
+			public void accept(Emp e) {
+					
+			 String msg = e.getEmpno() + " "
+						+ e.getEname() + " "
+						+ e.getMgr() + " "
+						+ e.getHiredate() + " ";
+					log.info(msg);
+				
+					Dept t = e.getDept();
+					
+					   msg = "\t\t" 
+						   + t.getDeptno()  + " " 
 						   + t.getDname() + " " 
 						   + t.getLoc();
 				log.info(msg);
-				
-				List<Emp> emps = t.getEmps();
-				if(emps != null)
-				for(Emp e : emps){
-					msg = "\t\t" 
-						+ e.getEmpno() + " "
-						+ e.getEname() + " "
-						+ e.getJob() + " "
-						+ e.getMgr() + " "
-						+ e.getHiredate() + " "
-						+ e.getSal() + " "
-						+ e.getDept().getDeptno() + " "
-						+ e.getDept().getDname() + " ";
-					log.info(msg);
-				}
 			}
 		});
-
+		/*
 //		Dept dept = deptMapper.selectByDeptno(20);
 		Dept dept = deptMapper.selectByDeptnoWithEmp(10);
 		System.out.println("====deptMapper.selectByDeptnoWithEmp(10)=====");
@@ -68,7 +63,7 @@ public class DeptMapperTest {
 				+ e.getDept().getDeptno() + " "
 				+ e.getDept().getDname() + " ";
 			log.info(msg);
-		}
+		}*/
 		
 	}
 }

@@ -11,6 +11,14 @@ public class Dept {
 	private String loc;
 	private List<Emp> emps; //Has-Many
 
+	public List<Emp> getEmps() {
+		return emps;
+	}
+
+	public void setEmps(List<Emp> emps) {
+		this.emps = emps;
+	}
+
 	public int getDeptno() {
 		return deptno;
 	}
