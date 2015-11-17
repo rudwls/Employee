@@ -15,6 +15,7 @@ public class DeptMapperTest {
 	static Log log = LogFactory.getLog(DeptWrapperTest.class);
 
 	public static void main(String[] args) {
+		
 		GenericXmlApplicationContext ctx = null;
 		ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
 
