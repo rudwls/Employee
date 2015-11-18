@@ -1,12 +1,12 @@
 package com.hybrid.other;
-
+/*
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+*/
 public class WrapperTest {
 	public static void main(String[] args) {
-		List<Map<String, List<Integer>>> list = new ArrayList<>();
+//		List<Map<String, List<Integer>>> list = new ArrayList<>();
 
 		for (int i = 1; i < 10; i++) {
 			for (int j = 1; j < 10; j++) {
@@ -22,7 +22,7 @@ public class WrapperTest {
 
 	}
 
-	static void test1() {
+	/*static void test1() {
 		// Primitive Type (원시타입)
 		byte b = 20; // 1byte
 		short s = 10; // 2byte
@@ -42,6 +42,6 @@ public class WrapperTest {
 		Float f1 = 200f; // 4byte
 		Double d1 = 300.; // 8byte
 
-	}
+	}*/
 
 }

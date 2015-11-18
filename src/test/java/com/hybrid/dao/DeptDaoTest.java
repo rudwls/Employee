@@ -25,6 +25,8 @@ public class DeptDaoTest {
 
       dao.selectByDeptno(10);
       dao.selectByDeptnoWithEmps(20);
+      
+      ctx.close();
    }
 
 }

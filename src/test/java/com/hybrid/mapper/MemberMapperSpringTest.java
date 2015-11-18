@@ -10,7 +10,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.hybrid.model.Member;
@@ -34,6 +33,8 @@ public class MemberMapperSpringTest {
 				log.info("email = " + t.getEmail());
 			}
 		});
+		
+		ctx.close();
 	}
 
 	static void test2() {
@@ -51,6 +52,7 @@ public class MemberMapperSpringTest {
 			}
 
 		});
+		ctx.close();
 
 	}
 
@@ -74,6 +76,7 @@ public class MemberMapperSpringTest {
 		log.info("productName = " + productName);
 		log.info("productVersion = " + productVersion);
 
+		ctx.close();
 	}
 
 }

@@ -64,6 +64,6 @@ public class EmpMapperTest {
 				+ e.getDept().getDname() + " ";
 			log.info(msg);
 		}*/
-		
+		ctx.close();
 	}
 }

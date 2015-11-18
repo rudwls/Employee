@@ -10,6 +10,13 @@ create table member(
 );
 
 select * from dept;
+select * from emp;
+
+select *
+  from dept d inner join emp e
+    on d.deptno = e.deptno
+ where d.deptno = 80
+
 select * from country;
 --DDL(Data Definition Language)
 drop table member;
@@ -70,6 +77,8 @@ create table city (
 delete from city
 
 select count(*) from city
+
+
 
 insert into city
 (

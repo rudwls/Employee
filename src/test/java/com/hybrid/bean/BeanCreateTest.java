@@ -41,6 +41,7 @@ public class BeanCreateTest {
 		Element root = document.getDocumentElement();
 		log.info(root.getNodeName());
 		
+		ctx.close();
 		
 		//test();
 	}

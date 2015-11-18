@@ -70,6 +70,6 @@ public class DeptMapperTest {
 				+ e.getDept().getDname() + " ";
 			log.info(msg);
 		}
-		
+		ctx.close();
 	}
 }

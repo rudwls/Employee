@@ -1,9 +1,7 @@
 package com.hybrid.model;
 
-import java.util.Date;
 import java.util.List;
 
-import com.hybrid.exception.PasswordNotMatchingException;
 
 public class Dept {
 	private int deptno;
