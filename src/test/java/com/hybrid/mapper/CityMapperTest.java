@@ -10,7 +10,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import com.hybrid.model.City;
 
 public class CityMapperTest {
-		
+
 	static Log log = LogFactory.getLog(CityMapperTest.class);
 	
 	public static void main(String[] args) {
@@ -19,22 +19,19 @@ public class CityMapperTest {
 		
 		CityMapper cityMapper = ctx.getBean(CityMapper.class);
 		
-//		List<City> list = cityMapper.selectAll();
+		//List<City> list = cityMapper.selectAll();
 		List<City> list = cityMapper.selectByCountryCode("KOR");
 		
-		
 		list.forEach(new Consumer<City>() {
+
+			@Override
 			public void accept(City t) {
-				log.info("id = " + t.getName());
+				log.info("name =" + t.getName());
 				
 			}
-			
-			
 		});
 		
 		ctx.close();
-		
-
 	}
 
 }

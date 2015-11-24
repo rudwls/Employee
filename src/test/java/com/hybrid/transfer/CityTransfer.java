@@ -27,9 +27,10 @@ public class CityTransfer {
 		list.forEach(new Consumer<City>() {
 
 			public void accept(City t) {
-				System.out.print(".");
 				oracleCityMapper.insert(t);
-//				
+				//System.out.println(".");
+				//log.info("name = " + t.getName());
+				
 			}
 			
 		});

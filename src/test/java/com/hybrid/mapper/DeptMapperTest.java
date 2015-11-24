@@ -50,7 +50,7 @@ public class DeptMapperTest {
 		});
 
 //		Dept dept = deptMapper.selectByDeptno(20);
-		Dept dept = deptMapper.selectByDeptnoWithEmp(10);
+		Dept dept = deptMapper.selectByDeptnoWithEmps(10);
 		System.out.println("====deptMapper.selectByDeptnoWithEmp(10)=====");
 		String msg = dept.getDeptno()  + " " 
 				   + dept.getDname() + " " 

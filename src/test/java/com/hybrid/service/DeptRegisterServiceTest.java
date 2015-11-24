@@ -14,48 +14,40 @@ import com.hybrid.model.Emp;
 public class DeptRegisterServiceTest {
 
 	static Log log = LogFactory.getLog(DeptRegisterServiceTest.class);
-
+	
 	public static void main(String[] args) {
 		GenericXmlApplicationContext ctx = null;
 		ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
-
+		
 		DeptRegisterService service = ctx.getBean(DeptRegisterService.class);
-
+		DeptUnRegisterService uservice = ctx.getBean(DeptUnRegisterService.class);
+		
 		Dept dept = ctx.getBean(Dept.class);
-
+		
+		uservice.unregist(dept);
 		service.regist(dept);
-
-		ctx.close();
-	}
-
-	static void test1() {
-		GenericXmlApplicationContext ctx = null;
-		ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
-
-		DeptRegisterService service = ctx.getBean(DeptRegisterService.class);
-		Dept dept = new Dept();
-		dept.setDeptno(70);
+		
+		
+		/*Dept dept = new Dept();
+		dept.setDeptno(73);
 		dept.setDname("총무부");
 		dept.setLoc("seoul");
-
+		
 		Emp emp = new Emp();
-		emp.setEmpno(30);
-		emp.setEname("홍길동");
+		emp.setEmpno(30);*/
+		/*emp.setEname("홍길동");
 		emp.setJob("xxx");
 		emp.setHiredate(new Date());
 		emp.setMgr(100);
 		emp.setSal(999.9f);
 		emp.setComm(null);
-		emp.setDept(dept);
-
-		List<Emp> emps = new ArrayList<Emp>();
+		emp.setDept(dept);*/
+		/*List<Emp> emps = new ArrayList<Emp>();
 		emps.add(emp);
-
+		
 		dept.setEmps(emps);
-
-		service.regist(dept);
-
-		ctx.close();
+		*/
+		
 	}
 
 }

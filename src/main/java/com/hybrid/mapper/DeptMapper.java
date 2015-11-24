@@ -5,12 +5,17 @@ import java.util.List;
 import com.hybrid.model.Dept;
 
 public interface DeptMapper {
-	
 	List<Dept> selectAll();
 	List<Dept> selectAllWithEmps();
-
+	
 	Dept selectByDeptno(int deptno);
-	Dept selectByDeptnoWithEmp(int deptno);
+	Dept selectByDeptnoWithEmps(int deptno);
 	
 	int insert(Dept dept);
+	
+	int delete(Dept dept);
+	
+	List<Dept> selectGreaterThan(int deptno);
+	int deleteGreaterThan(int deptno);
+	
 }

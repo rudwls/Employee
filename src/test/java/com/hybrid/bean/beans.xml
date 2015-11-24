@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<bean class="java.util.Date" scope="prototype">
-    <property name="year" value="115"/>
-    <property name="month" value="09"/>
-    <property name="date" value="15"/>    
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+<!-- NEW 생성 95% 사용됨 -->
+<bean class="java.util.Date">
+	<property name="year" value="115"></property>
+	<property name="month" value="08"></property>
+	<property name="date" value="10"></property>
 </bean>
+
+<!-- NEW 생성 95% 사용됨 -->
 <bean class="com.hybrid.model.Member">
+	
 </bean>
+
+<!-- factory method 생성 1% 사용됨 -->
 <bean id="documentBuilderFactory" class="javax.xml.parsers.DocumentBuilderFactory" factory-method="newInstance">
 
 </bean>
 <bean class="com.hybrid.bean.DocumentFactoryBean">
-	<constructor-arg ref="documentBuilderFactory"/>
-	<property name="path" value="com/hybrid/bean/dept.xml"/>
-
+	<constructor-arg ref="documentBuilderFactory"></constructor-arg>
+	<property name="path" value="com/hybrid/bean/dept.xml"></property>
 </bean>
+
 </beans>

@@ -1,7 +1,7 @@
 package com.hybrid.bean;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,48 +15,54 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+import com.hybrid.model.Member;
+
 public class BeanCreateTest {
 
 	static Log log = LogFactory.getLog(BeanCreateTest.class);
-	static GenericXmlApplicationContext ctx;
-	public static void main(String[] args) throws ParserConfigurationException, InterruptedException, SAXException, IOException {
-		 ctx = new GenericXmlApplicationContext("com/hybrid/bean/beans.xml");
-		 
-		 Document document = ctx.getBean(Document.class);
-		 
-		 Element root = document.getDocumentElement();
-		 log.info(root.getNodeName());
+	static GenericXmlApplicationContext ctx = null;
+	public static void main(String[] args) throws InterruptedException, ParserConfigurationException, SAXException, IOException {
 		
-	
-	
+		ctx = new GenericXmlApplicationContext("com/hybrid/bean/beans.xml");
+		//text1();
+		
+		Document document = ctx.getBean(Document.class);
+		
+		Element root = document.getDocumentElement();
+		log.info(root.getNodeName());
 	}
-		static void test2() throws ParserConfigurationException, SAXException, IOException{
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("com/hybrid/bean/beans.xml");
-
+	static void test2() throws ParserConfigurationException, SAXException, IOException{
+		
 		DocumentBuilderFactory f = ctx.getBean(DocumentBuilderFactory.class);
 		DocumentBuilder builder = f.newDocumentBuilder();
+		
 		ClassPathResource resource = new ClassPathResource("com/hybrid/bean/dept.xml");
 		
 		Document document = builder.parse(resource.getInputStream());
 		Element root = document.getDocumentElement();
 		log.info(root.getNodeName());
-		
-		ctx.close();
-		
-		//test();
 	}
-
-	static void test() throws InterruptedException {
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("com/hybrid/bean/beans.xml");
-
+		
+		static void text1() throws InterruptedException {
+		
 		Date d = ctx.getBean(Date.class);
-		log.info("date = " + d);
-
+		
+		log.info("date =" +d);
+		
 		Thread.sleep(2000);
-
+		
 		Date d2 = ctx.getBean(Date.class);
-		log.info("date = " + d2);
-
-		ctx.close();
+		log.info("date =" +d2);
+		
+		Member m = ctx.getBean(Member.class);
+		Member m2 = ctx.getBean(Member.class);
+		
+		m.setId(100);
+		m.setEmail("xxx@yyy.co.kr");
+		
+		log.info("id = " +m2.getId());
+		log.info("email = " + m2.getEmail());
+		
 	}
+
 }

@@ -4,24 +4,19 @@ import java.util.Date;
 
 import com.hybrid.exception.PasswordNotMatchingException;
 
-/*Model Object
-Value Object
-Transfer Object
-Beans 	1. property
-		2. evnet
-		3. method
-*/
+//Beans 1.property
+//      2. event
+//      3. 기능(method)
 public class Member {
-	private long id;
-	private String email;
-	private String name;
-	private String password;
-	private Date registerDate;
-
-	public long getId() {
-		return id;
-	}
-
+	 private long id;
+	 private String email;
+	 private String name;
+	 private String password;
+	 private Date registerDate;
+	 
+	public long getId(){
+		 return id;
+	 }
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -58,11 +53,10 @@ public class Member {
 		this.registerDate = registerDate;
 	}
 	
-	public void changePassword(String oldPassword, String newPassword){
+	public void changePassword(String oldPassword, String newPassword) {
 		if(!this.password.equals(oldPassword)){
 			throw new PasswordNotMatchingException();
 		}
-		setPassword(newPassword);
+		this.password = newPassword;
 	}
-
 }
