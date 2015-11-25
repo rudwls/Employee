@@ -49,7 +49,9 @@
 	<!-- 3. needed for ContextLoaderListener -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring/beans_dao.xml</param-value>
+		<param-value>classpath:spring/beans_dao.xml
+		   			 classpath:spring/beans_service.xml
+		</param-value>
 	</context-param>
 
 	<!-- Bootstraps the root web application context before servlet initialization -->
