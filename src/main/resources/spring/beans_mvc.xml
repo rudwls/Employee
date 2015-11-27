@@ -9,7 +9,7 @@
 
 <mvc:default-servlet-handler/>
 
-<context:component-scan base-package="com.hybrid.controller"/>
+<!-- <context:component-scan base-package="com.hybrid.controller"/> -->
 
 
 <mvc:annotation-driven/>
@@ -27,4 +27,10 @@
 <mvc:resources location="/WEB-INF/node_modules/angular/" mapping="/angular/**" cache-period="0" />
 <mvc:resources location="/WEB-INF/node_modules/bootstrap/" mapping="/bootstrap/**" cache-period="0" />
 <mvc:resources location="/WEB-INF/node_modules/jquery/" mapping="/jquery/**" cache-period="0" />
+
+	<bean class="com.hybrid.controller.CityController">
+		<property name="cityListService" ref="cityListService"></property>
+		<property name="cityPageService" ref="cityPageService"></property>
+	</bean>
+
 </beans>
