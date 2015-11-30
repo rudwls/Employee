@@ -11,18 +11,19 @@
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/view/common.jspf"%>
 
-<title>template.jsp</title>
+<title>loadingBar.jsp</title>
+
 <script type="text/javascript">
 	var deps = [ 'ngRoute', 'ngAnimate', 'ngTouch', 'angular-loading-bar' ];
 	var app = angular.module("employeeApp", deps);
 
 	app.controller("mainController", function($scope, $http) {
-		log.info("mainController...");
+		console.log("mainController...");
 
 	});
 </script>
 </head>
 <body data-ng-controller="mainController" class="container">
-
+<h2> LoadingBar.jsp </h2>
 </body>
 </html>

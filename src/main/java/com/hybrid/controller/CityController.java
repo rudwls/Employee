@@ -18,30 +18,30 @@ import com.hybrid.service.CityListService;
 import com.hybrid.service.CityPageService;
 import com.hybrid.util.Pagination;
 
-//@Controller
+@Controller
 @RequestMapping("/city")
 public class CityController {
 	static Log log = LogFactory.getLog(CityController.class);
 
-	// @Autowired
+	@Autowired // 필드 주입
 	CityListService cityListService;
 
-	// @Autowired
+	@Autowired
 	CityPageService cityPageService;
 
-	public void setCityListService(CityListService service) {
-		this.cityListService = service;
-	}
+//	public void setCityListService(CityListService service) {
+//		this.cityListService = service;
+//	}
+//
+//	public void setCityPageService(CityPageService service) {
+//		this.cityPageService = service;
+//	}
 
-	public void setCityPageService(CityPageService service) {
-		this.cityPageService = service;
-	}
-
-	@RequestMapping("/city.html")
+	@RequestMapping("/main.html")
 	public String getView() {
 		log.info("getView()...");
 
-		return "city/city";
+		return "city/main";
 	}
 
 	@RequestMapping(value = { "", "/" })
@@ -63,7 +63,8 @@ public class CityController {
 
 		return list;
 	}
-						// [a(-)] [0-9(숫자)] [+(반복)] {0,1}(있거나 없거나)
+
+	// [a(-)] [0-9(숫자)] [+(반복)] {0,1}(있거나 없거나)
 	@RequestMapping("/page/{pageNo:[\\-\\+]{0,1}[0-9]+}")
 	@ResponseBody
 	public CityPage getCityPage(@PathVariable int pageNo) {

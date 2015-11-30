@@ -46,14 +46,20 @@
 
 		$scope.selectPage();
 
-		$scope.prevCilck = function(pageNo) {
-// 			alert("pageNo = " + pageNo);
+		$scope.prevClick = function(pageNo) {
+// 			console.dir("prevCilck pageNo = " + pageNo);
 			$scope.pageNo = pageNo
 			$scope.selectPage();
 
 		};
-		$scope.nextCilck = function(pageNo) {
-// 			alert("pageNo = " + pageNo);
+		$scope.pageClick = function(pageNo) {
+// 			console.dir("pageCilck pageNo = " + pageNo);
+			$scope.pageNo = pageNo
+			$scope.selectPage();
+
+		};
+		$scope.nextClick = function(pageNo) {
+// 			console.dir("nextCilck pageNo = " + pageNo);
 			$scope.pageNo = pageNo
 			$scope.selectPage();
 
@@ -70,11 +76,11 @@
 			<div class="table-responsive">
 				<ul class="pagination">
 					<li><a href="#"
-						data-ng-click="prevCilck(paging.firstPage - 1)">Prev</a></li>
-					<li data-ng-repeat="page in paing">
-						{{page.pageNo}}
+						data-ng-click="prevClick(paging.firstPage - 1)">Prev</a></li>
+					<li data-ng-repeat="city in citys">
+						<a href="#" data-ng-click="pageClick(paging.firstPage + $index)">{{paging.firstPage + $index}}</a>
 					</li>
-					<li><a href="#" data-ng-click="nextCilck(paging.lastPage + 1)">Next</a></li>
+					<li><a href="#" data-ng-click="nextClick(paging.lastPage + 1)">Next</a></li>
 
 				</ul>
 				<table class="table table-striped table-hover">
