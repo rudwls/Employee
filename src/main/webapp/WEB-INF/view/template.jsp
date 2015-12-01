@@ -17,7 +17,7 @@
 	var app = angular.module("employeeApp", deps);
 
 	app.controller("mainController", function($scope, $http) {
-		log.info("mainController...");
+		console.log("mainController...");
 
 	});
 </script>

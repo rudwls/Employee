@@ -43,6 +43,18 @@ public class CityController {
 
 		return "city/main";
 	}
+	@RequestMapping("/list.html")
+	public String getListView() {
+		log.info("getListView()...");
+
+		return "city/list";
+	}
+	@RequestMapping("/detail.html")
+	public String getDetailView() {
+		log.info("getDetailView()...");
+
+		return "city/detail";
+	}
 
 	@RequestMapping(value = { "", "/" })
 	@ResponseBody

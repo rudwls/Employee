@@ -48,23 +48,27 @@
 			 img test
 		 */
 
-		$scope.imgURL = "http://www.placehold.it/400x400";
+		 var data = ['page1','page2','page3','page4','page5','page6','page7','page8','page9','page10'];
+		var count = 0;
 		
-
+		$scope.imgURL = "http://www.placehold.it/400x400/ff0000/00ffff?text="+data[(count%10)];
+		
 		$scope.imgSwipeLeft = function(e) {
 			console.log("imgSwipeLeft...");
 			console.dir(e);
 			$scope.imgmsg = "ng-swipe-left fired...";
-
-			$scope.imgURL = "http://www.placehold.it/400x400/ff0000/00ffff?text=SwipeLeft...";
+			count=count+1;
+			$scope.imgURL = "http://www.placehold.it/400x400/ff0000/00ffff?text="+data[(count%10)];
 			
 		};
 		$scope.imgSwipeRight = function(e) {
 			console.log("imgSwipeRight...");
 			console.dir(e);
 			$scope.imgmsg = "ng-swipe-right fired...";
-			
-			$scope.imgURL = "http://www.placehold.it/400x400/0000ff/ffff00?text=SwipeRight...";
+			count=count-1;
+			if(count<0)
+				count=count+10;
+			$scope.imgURL = "http://www.placehold.it/400x400/0000ff/ffff00?text="+data[(count%10)];
 
 		};
 		
@@ -85,7 +89,8 @@
 	
 	<img data-ng-swipe-left="imgSwipeLeft($event)"
 		data-ng-swipe-right="imgSwipeRight($event)"
-	draggable="false" class="img-responsive" alt="{{imgURL}}" src="{{imgURL}}">
+		ondragstart="return false"
+	draggable="false" class="img-responsive" alt="{{imgURL}}" data-ng-src="{{imgURL}}">
 	
 	<p>{{imgmsg}}
 	</p>
