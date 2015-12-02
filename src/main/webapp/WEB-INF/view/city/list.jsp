@@ -30,14 +30,19 @@
 			<li><button data-ng-click="nextClick(paging.lastPage + 1)">Next</button></li>
 
 		</ul>
+<a href="#/append" class="btn btn-primary">Append</a>
 		<table class="table table-striped table-hover">
 			<thead>
+			<tr>
 				<th>NO</th>
 				<th>ID</th>
 				<th>NAME</th>
 				<th>COUNTRY CODE</th>
 				<th>DISTRICT</th>
 				<th>POPULATION</th>
+				<th>EDIT</th>
+				<th>DELETE</th>
+			</tr>
 			</thead>
 			<tbody>
 				<tr data-ng-repeat="city in citys">
@@ -47,6 +52,10 @@
 					<td>{{city.countryCode}}</td>
 					<td>{{city.district}}</td>
 					<td>{{city.population}}</td>
+					<td>
+<a href="#/modify" class="btn btn-info">Modify</a></td>
+					<td>
+<a href="#/delete" class="btn btn-">Delete</a></td>
 				</tr>
 
 			</tbody>

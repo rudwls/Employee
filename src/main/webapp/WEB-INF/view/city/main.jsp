@@ -15,13 +15,33 @@
 <c:url value="/city/page/" var="URL_GET_PAGE_BASE"/>
 <c:url value="/city/" var= "URL_GET_ITEM_BASE"/>
 
+<c:url value="/city/" var="URL_POST_ITEM_APPEND"/>
+<c:url value="/city/" var="URL_POST_LIST_APPEND"/>
+
+
+<c:url value="/city/" var="URL_PUT_LIST_MODIFY"/>
+<c:url value="/city/" var="URL_PUT_ITEM_MODIFY_BASE"/>
+
+
+<c:url value="/city/" var="URL_DELETE_ITEM_DELETE_BASE"/>
+
 <title>template.jsp</title>
 <script type="text/javascript">
 	
 	var urls ={
-			GET_LIST:		"${URL_GET_LIST}",
-			GET_PAGE_BASE: 	"${URL_GET_PAGE_BASE}",
-			GET_ITEM_BASE:	"${URL_GET_ITEM_BASE}"
+			GET_LIST:				"${URL_GET_LIST}",
+			GET_PAGE_BASE: 			"${URL_GET_PAGE_BASE}",
+			GET_ITEM_BASE:			"${URL_GET_ITEM_BASE}",
+			
+			POST_ITEM_APPEND:		"${URL_POST_ITEM_APPEND}",
+			POST_LIST_APPEND: 		"${URL_POST_LIST_APPEND}",
+			
+			PUT_LIST_MODIFY:		"${URL_PUT_LIST_MODIFY}",
+			PUT_ITEM_MODIFY_BASE: 	"${URL_PUT_ITEM_MODIFY_BASE}",
+			
+			DELETE_ITEM_DELETE_BASE:"${URL_DELETE_ITEM_DELETE_BASE}"
+			
+			
 	};
 
 	var deps = [ 'ngRoute', 'ngAnimate', 'ngTouch', 'angular-loading-bar' ];
@@ -41,9 +61,15 @@
 </head>
 <c:url var="listController" value="/js/city/listController.js"/>
 <c:url var="detailController" value="/js/city/detailController.js"/>
+<c:url var="appendController" value="/js/city/appendController.js"/>
+<c:url var="deleteController" value="/js/city/deleteController.js"/>
+<c:url var="modifyController" value="/js/city/modifyController.js"/>
 
 <script type="text/javascript" src=${listController }></script>
 <script type="text/javascript" src=${detailController }></script>
+<script type="text/javascript" src=${appendController }></script>
+<script type="text/javascript" src=${deleteController }></script>
+<script type="text/javascript" src=${modifyController }></script>
 <body data-ng-controller="mainController" class="container">
 test
 <h2>{{title}}</h2>

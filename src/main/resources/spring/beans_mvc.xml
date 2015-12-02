@@ -17,7 +17,7 @@
 	<mvc:jsp prefix="/WEB-INF/view/" suffix=".jsp"/>
 </mvc:view-resolvers>
 
-<mvc:view-controller path="/index.html" view-name="index"/>
+<!-- <mvc:view-controller path="/index.html" view-name="index"/> -->
 
 <mvc:resources location="/WEB-INF/css/" mapping="/css/**" cache-period="0" />
 <mvc:resources location="/WEB-INF/js/" mapping="/js/**" cache-period="0" />
