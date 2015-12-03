@@ -30,9 +30,10 @@
 			<li><button data-ng-click="nextClick(paging.lastPage + 1)">Next</button></li>
 
 		</ul>
-<a href="#/append" class="btn btn-primary">Append</a>
 		<table class="table table-striped table-hover">
 			<thead>
+			<tr>
+<a href="#/append" class="btn btn-primary">Append</a></tr>
 			<tr>
 				<th>NO</th>
 				<th>ID</th>

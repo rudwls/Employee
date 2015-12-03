@@ -15,11 +15,16 @@ public class CityTransfer {
 
 	public static void main(String[] args) {
 
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("spring/beans_mysql.xml",
-				"spring/beans_oracle.xml");
+		GenericXmlApplicationContext ctx = 
+				new GenericXmlApplicationContext("spring/beans_mysql.xml",
+												 "spring/beans_oracle.xml");
+		
+		
 		
 		CityMapper mysqlCityMapper = (CityMapper) ctx.getBean("mysqlCityMapper");
 		CityMapper oracleCityMapper = (CityMapper) ctx.getBean("oracleCityMapper");
+		
+		int deleteCount = oracleCityMapper.deleteAll();
 		
 		List<City> list = mysqlCityMapper.selectAll();
 		log.info("city size = "+ list.size());
@@ -27,13 +32,21 @@ public class CityTransfer {
 		list.forEach(new Consumer<City>() {
 
 			public void accept(City t) {
-				oracleCityMapper.insert(t);
-				//System.out.println(".");
+				System.out.println(".");
+				System.out.flush();
+				if(t.getDistrict().equals("")){
+					t.setDistrict(" ");
+				}
+				int rtn = oracleCityMapper.insert(t);
+				log.info("rtn :: " + rtn);
 				//log.info("name = " + t.getName());
 				
 			}
 			
 		});
+		
+		int cityCount = oracleCityMapper.selectCount();
+		log.info("cityCount :: " + cityCount);
 		
 		ctx.close();
 	}

@@ -6,11 +6,17 @@
 
 	<!-- CityListService -->
 	<bean id="cityListService" class="com.hybrid.service.CityListService">
-		<property name="cityDao" ref="cityDao"></property>
+		<property name="cityDao" ref="cityDao"/>
 	</bean>
 
 	<!-- CityPageService -->
 	<bean id="cityPageService" class="com.hybrid.service.CityPageService">
+		<property name="cityDao" ref="cityDao" />
+
+	</bean>
+
+	<!-- CityRegisterService -->
+	<bean id="CityRegisterService" class="com.hybrid.service.CityRegisterService">
 		<property name="cityDao" ref="cityDao" />
 
 	</bean>
